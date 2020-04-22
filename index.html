@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="CSS/global.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+	</head>
+
+	<body>
+		<header>
+			<h1>JavaScript权威指南学习笔记</h1>
+		</header>
+		<hr />
+		
+		<div class="outer">
+			<span id="meun">
+				<!--菜单打开关闭图标-->
+				<i class="fa fa-heart" id="hide"></i>
+			</span>
+			<div class="nav">
+				<ul id="title">
+					<li class="topic"><a href="#topic1">第一章</a></li>
+					<li class="topic"><a href="#topic2">第二章</a></li>
+					<li class="topic"><a href="#topic3">第三章</a></li>
+					<li class="topic"><a href="#topic4">第四章</a></li>
+					<li class="topic"><a href="#topic5">第五章</a></li>
+					<li class="topic"><a href="#topic6">第六章</a></li>
+					<li class="topic"><a href="#topic7">第七章</a></li>
+					<li class="topic"><a href="#topic8">第八章</a></li>
+					<li class="topic"><a href="#topic9">第九章</a></li>
+					<li class="topic"><a href="#topic10">第十章</a></li>
+				</ul>
+			</div>
+			<div class="content" id="topic1">
+				<h2>一. javascript概述</h2>
+				<ol>
+					<li>
+						Google解释器或引擎叫做V8，内核是webkit/blint;<br />
+						safari浏览器的内核是webkit; <br />
+						firefox浏览器的内核是gecko; <br />
+						ie浏览器的内核是trident; <br />
+						opera浏览器的内核是presto;<br />
+					</li>
+					<li>关注的重点示例：
+						<pre><code>
+	//javascript中最重要的类型就是对象，对象是名/值对的集合，或者字符串到值的映射
+	var book = {			// => 对象是由花括号括起来的
+		topic: 'javascript',	// => 属性topic的值是'javascript'
+		fat: 'true'
+	};			 	// => 右边花括号标记了对象的结束
+	//通过"."或"[]"来访问对象属性
+	book.topic;
+	book['fat'];
+	book.author = '屠永涛';		// => 通过赋值创建一个新属性
+	book.contents = {};		// => {}是一个空对象,它没有属性
+	
+	//数组和对象都可以包含其他数组和对象
+	var points = [			// => 具有两个元素的数组
+		{x:0,y:1}, 			// => 每个元素都是一个对象
+		{x:1,y:1}
+	];
+	var data = {				// => 一个包含两个属性的对象
+		data1: [[1,2],[3,4]],	// => 每个属性都是数组
+		data2: [[2,3],[4,5]]	// => 数组的元素也是数组
+	};
+						</code></pre>
+						<span>
+							上面代码中通过方括号定义数组元素和通过花括号定义对象属性名和属性值之间的映射关系的语法叫做初始化表达式；表达式是javascript的一个短语，
+							这个短语可以通过运算得出一个值。通过'.'或'[]'来引用对象属性或数组元素的值就构成一个表达式。
+						</span>
+						<span>
+							最常见的表达式如下：
+						</span>
+	<pre><code>
+	//最常见的是算术运算符
+	3+2;  				// => 5
+	var count = 0;					
+	count++;			// => count++ =>0; count => 1
+	++count;			// => count++ =>1; count => 1
+	count;				// => 变量名本身也是一个表达式
+	
+	//相等关系运算符判断两值是否相等
+	var x = 1, y = 3;
+	x == y;						//  => false
+	x != y;						//  => true
+	false == (x > y);			//  => true:false和false相等
+	//逻辑运算符是对布尔值的合并或求反
+	(x == 2) && (y == 3);		// => true:两个比较都是true，最后结果是true
+	(x >2) && (y == 3);    		// => true:一个师true，一个是false，最后结果是true
+	!(x > y);					// => true: 对false求反
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							当函数赋值给对象的属性时，就变成了方法
+						</span>
+	<pre><code>
+	var a = [];
+	a.push(1,2,3);		//push()方法添加元素
+	a.reverse();		//将元素次序反转
+	
+	//我们也可以定义自己的方法this关键字是对定义方法的对象的引用
+	var points = [1,2,3];
+	points.sum = function(){
+		return this[0]+this[1];		
+	}
+	points.sum();		// =>3
+	</code></pre>
+					</li>
+					<li>
+						<span>定义一个构造函数，初始化一个新的对象</span>
+	<pre><code>
+	function Point (x,y) {		// => 按照惯例，构造函数一大写开头
+		this.x = x;		// => 关键字this指代初始化的实例
+		this.y = y;		// => 将函数参数存储为对象的属性
+	}
+	//使用new关键字和构造函数来创建一个实例
+	var p = new Point(1,1);
+	//通过给构造函数的prototype对象赋值来给Point对象定义方法
+	Point.prototype.r = function() {
+		return Math.sqrt(this.x*this.x + this.y*this.y);	// =>this指代调用这个方法的对象
+	}
+	p.r();	// => 1.414
+	结论:属性定义在实例上,方法定义在原型上
+	</code></pre>
+					</li>
+				</ol>
+			</div>
+			<div class="content" id="topic2">
+				<h2>二. 词法结构</h2>
+				<ol>
+					<li>
+						
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var nav = document.getElementsByClassName('nav')[0];
+			var content = document.getElementsByClassName('content');
+			var count = 0;
+			document.getElementById('hide').onclick = function(){
+				count++;
+				for (var i = 0; i < content.length; i++) {
+					if (count % 2 !== 0) {
+						nav.style.display = 'none';
+						content[i].style.marginLeft = '20px';
+					} else{
+						nav.style.display = 'block';
+						content[i].style.marginLeft = '200px';
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>
