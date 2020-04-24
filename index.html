@@ -277,7 +277,56 @@
 					</li>
 				</ol>
 			</div>
+			<div class="content" id="topic4">
+				<h2>四. 表达式和运算符</h2>
+				<ol>
+					<li>
+						<span>
+							最简单的表达式是原始表达式，原始表达式包含：直接字 关键字 变量
+						</span>
+	<pre><code>
+	1.23 // 数字直接量
+	ture // 返回一个布尔值：假
+	sum  // 返回sum的值
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							属性访问表达式：js为属性访问定义了两种语法 '.'和'[ ]' <br />
+							不管是用那种形式的属性访问表达式，在 '.'和'[ ]'之前的表达式总是会首先计算；如果计算结果为null或者undefined， <br />
+							表达式会抛出一乐类型异常错误，因为这两个值都不包含任何属性。如果运算结果不是数组或对象，JS会将其转换为对象
+						</span>
+					</li>
+					<li>
+						<span>
+							调用表达式：并不是方法调用的表达式通常使用全局对象作为this关键字的值，但是在严格模式下定义的函数在调用时 <br />
+							将使用undefined作为this的值，this也不会指向全局对象。
+						</span>
+	<pre><code>
+	'use strict'   // => 注意'use strict'放在这里的话，相当于都是用了严格模式，二者输出都是undefined
+	function test1 () {
+		console.log(this);
+	}
+	'use strict'   // => 注意'use strict'放在这里没有用，因为发生了函数变量提升
+	function test2 () {
+		'use strict'   // => 注意'use strict'只能放在这个位置，
+		console.log(this);
+	}
+	test1(); // => window
+	test2(); // => undefined
+	</code></pre>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>
 		</div>
+		
 		<script type="text/javascript">
 			var nav = document.getElementsByClassName('nav')[0];
 			var content = document.getElementsByClassName('content');

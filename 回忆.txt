@@ -1,0 +1,29 @@
+字符串方法：
+字符方法： charAt(number),charCodeAt(number)返回索引的字符或字符编码
+字符串操作方法：concat('str'),相当于‘+’
+				给定一个索引区域，返回一个子字符串，
+				slice（num1,num2），substr(number1,number2),substring(num1,num2)
+				num1 为查询的首索引，num2为查询最后字符的后一位，number2位查询的个数
+字符串位置方法：indexof('str'，num2)，lastindex0f('str',num2);
+				num2可以不要,表示查找的开始索引， 第一个为从前往后找，第二个为从后往前找。
+trim（）方法，删除字符串前置和后缀的空格
+
+大小写：
+		tolocaleUpperCase()  toUpperCase()
+		tolocaleLowerCase()  toLowerCase()
+match()方法是一个正则匹配的方法
+
+
+数组方法：Array.isArray()
+		push（） <->pop()
+		unshift() <-> shift()
+	toString()返回一个逗号分隔的字符串，valueOf()返回一个数组，
+	join设置分隔符，
+	reverse(),逆序； sort(),
+	slice(),跟字符串用法一样，两个参数，num1 num2
+	splice(),删除是两个参数 开始的位置+个数
+	添加：替换 三个参数   开始位置，+0/1 + 值
+	indexof()  lastinedxof()
+	
+	遍历方法：
+	
