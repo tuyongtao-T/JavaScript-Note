@@ -9,6 +9,14 @@
 	</head>
 
 	<body>
+		<div class="back">
+			<i class="fa fa-arrow-circle-up" style="display: block;"><br /><a href="#topic1">顶部</a></i>
+		</div>
+		<!--<script type="text/javascript">
+			document.querySelector('.back')[0].onclick = function () {
+				this.style.background = 'red';
+			}
+		</script>-->
 		<header>
 			<h1>JavaScript权威指南学习笔记</h1>
 		</header>
@@ -17,7 +25,7 @@
 		<div class="outer">
 			<span id="meun">
 				<!--菜单打开关闭图标-->
-				<i class="fa fa-heart" id="hide" style="color: red;"></i>
+				<i class="fa fa-heart" id="hide" style="color: red;"> 目录</i>
 			</span>
 			<div class="nav">
 				<ul id="title">
@@ -316,13 +324,87 @@
 	test2(); // => undefined
 	</code></pre>
 					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>
+						<span>
+							一个有意思的东西： 运算顺序 <br />
+							运算符的优先级和结合性规定了他们在复杂表达式中的运算顺序，但并没有规定子表达式在计算过程中的运算顺序 <br />
+							JavaScript总是按照从左至右的顺序来计算表达式： <br />
+							表达式：  w = x + y * z; 计算过程为： 先计算子表达式w,然后计算x,y,z; 然后 y的值和z的值相乘，再加上x得值 <br />
+							最后将其赋值给w;
+						</span>
+	<pre><code>
+	let a = 1;
+	let b = a+++a; //  => a++为1  a变为2 ，结果为3
+	let b1 = a+++a; //相当于  let b1 = (a++)+a; ++ 优先级比+高 
+	console.log(b); // => 3
+	console.log(b1); // => 5
+	a = b = b1 = null; // => 手动释放内存
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							所有无法转换为数字的操作数都转换为NaN。
+						</span>
+					</li>
+					<li>
+						<span>
+							in 运算符
+						</span>
+	<pre><code>
+	let point = {x: 1,y: 2};
+	'x' in point;  // => true:对象有一个'x'属性
+	'z' in point;   // => false
+	'toString' in point;    // => true： 对象继承了toString（）方法
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							表达式计算： eval（ ）；使用它会进行二次解析，内部可以使函数，变量，常量或者是一个代码块； <br />
+							他可以被赋予其他名字： var f = eval;但此时间接调用则使用全局对象作为其上下文作用域，一般不用eval();
+						</span>
+	<pre><code>
+	let y = '小屠';
+	let f = eval;
+	function test1 () {
+		let y = '屠永涛';
+		console.log(eval(" y + '很帅'"));
+	}
+	function test2 () {
+		let y = '屠永涛';
+		console.log(f(" y + '很帅'")); // => 这里使用了全局对象作为执行上下文
+	}
+	test1(); // => 屠永涛很帅
+	test2(); // => 小屠很帅
+	y = f = null;
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							delete 操作符是一元运算符，用来删除对象属性或数组元素
+						</span>
+	<pre><code>
+	let point = {x: 1, y: 2};
+	delete point.x;  // => 返回true， 删除'x'属性
+	'x' in point;	  // => 返回false ，'x'不在对象中了
+	delete point.z;     // =>  返回true， 删除不存在的属性
+	
+	let ary = [1,2,3,4];
+	delete ary[1];
+	console.log(ary); //  => [1,empty,3,4],这里元素为空，长度还是4
+	</code></pre>
+					</li>
+					<li>
+						<span>
+							','运算符：他返回右操作数的值
+						</span>
+	<pre><code>
+	console.log((4,5,6)); // => 6,最右边的数
+	//他经常用在for循环中
+	for(let i=0,k=10; i&lt;k; i++,j--){
+		console.log(i+j);
+	}
+	</code></pre>
+					</li>
 				</ol>
 			</div>
 		</div>
